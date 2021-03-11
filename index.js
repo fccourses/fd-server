@@ -1,22 +1,15 @@
-/* 
+const http = require('http')
 
-  RESOLVING => LOADING => WRAPPING => EVALUATION => CACHING
+let reqCount = 0
 
-  I: 
-    1.1 CORE Modules
-    1.2 node_modules
+const requestListener = (req, res) => {
+  console.log(++reqCount)
+  
+  res.end(
+    `HELLO WORLD SERVER NODE.JS 14.16.0 Your req number is ${reqCount}`
+  )
+}
 
-  II:   './'
-    2.1   file js | json
-    2.2 directory
-      2.2.1 package.json -> "main" -> sprecific_file_name
-      2.2.2 index js | json
-  III: 
-    throw new Error()
-*/
-const t = require('./abra')
-console.log(t)
-t.test = 'test'
+const server = http.createServer(requestListener)
 
-console.log(t)
-
+server.listen(30000)
