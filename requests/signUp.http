@@ -1,4 +1,0 @@
-POST http://192.168.1.148:3000/signup HTTP/1.1
-Content-Type: application/json
-
-{"login":"Ihor","password":"Teset123$"}
